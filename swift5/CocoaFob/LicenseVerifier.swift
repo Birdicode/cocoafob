@@ -60,7 +60,7 @@ public struct LicenseVerifier {
   */
   public func verify(_ regKey: String, forName name: String) -> Bool {
     do {
-      guard let keyString = regKey.cocoaFobFromReadableKey()
+      let keyString = regKey.cocoaFobFromReadableKey()
       guard let keyData = keyString.data(using: String.Encoding.utf8) else { return false }
       guard let nameData = name.data(using: String.Encoding.utf8) else { return false }
       let decoder = try getDecoder(keyData)
